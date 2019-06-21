@@ -1,10 +1,15 @@
 {% extends "main/header.html" %}
 
 {% block content %}
-<p style="font-size:150%">Modify Schema</p>
-  <form method="POST">
+<form method='POST'>
     {% csrf_token %}
-    {{form.as_p}}
-    <button class="btn" type="submit">Modify Schema</button>
-  </form>
+  <label>Attribute</label>
+  <input type="text" name="attribute">
+  <label>Cardinality</label>
+  <select class='browser-default' name='cardinality'>
+    <option value="one">One-to-one</option>
+    <option value="many">One-to-many</option>
+  </select>
+  <button class='btn' type='submit'>Modify</button>
+</form>
 {% endblock %}

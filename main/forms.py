@@ -19,7 +19,7 @@ class NewUserForm(UserCreationForm):
 
 class SchemaForm(forms.ModelForm):
     attribute = forms.CharField(max_length=200)
-    cardinality = forms.CharField(max_length=4)
+    cardinality = forms.ChoiceField(choices=(('one', 'one'), ('many', 'many')))
     class Meta:
         model = Schema
         exclude = ()

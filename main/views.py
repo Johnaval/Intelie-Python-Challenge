@@ -55,20 +55,25 @@ def login_request(request):
 
 def modify_schema(request):
     if request.method == 'POST':
-        form = SchemaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.info(request, 'Schema modified successfully')
-            return redirect('main:homepage')
+        attribute = request.POST.get('attribute')
+        cardinality = request.POST.get('cardinality')
+        attribute_list = [att['attribute'] for att in Schema.objects.all().values('attribute')]
+        if attribute != "":
+            if attribute not in attribute_list:
+                schema = Schema(attribute=attribute, cardinality=cardinality)
+                schema.save()
+                messages.info(request, 'Schema modified successfully')
+                return redirect('main:homepage')
+            else:
+                messages.error(request, 'This attribute already exists')
         else:
             messages.error(request, 'Invalid value')
-    form = SchemaForm()
-    return render(request, 'main/modify_schema.html', {'form':form})
+    return render(request, 'main/modify_schema.html')
 
 def create_entity(request):
     if request.method == 'POST':
         entity_list = [value[0] for value in Entry.objects.order_by().values_list('entity').distinct()]
-        entity = entity_list[-1] + 1
+        entity = entity_list[-1] + 1 if len(entity_list) > 0 else 1
         form = EntryForm(request.POST)
         for field in form:
             value = request.POST.get(field.label)

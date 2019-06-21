@@ -82,10 +82,12 @@ For a few entities it works well but when this number becomes bigger, it will be
 
 Also, the attributes visualization could be better organized.
 
+The models were created thinking on how to modify the schema. First, I started doing one model for each attribute and a model for each entity, but then I realized that would not make possible changing the schema.
+The way it was done works, but when the database becomes too big the data retrieval will become slower, because the template code uses for loops to get all the data for each entity.
+
 ## Improvements
 A lot of the required things were already created but a few improvements could be done to improve the user interaction.
+
 For example, a search bar could be created on the navbar. So, when an user wants to search a certain entity, it just write something like "Entity: 3" and the website will search and only show the entity with number 3.
 If the user wants to search entities that contain a certain name, it could write "Name: John" and the website would show all entities that contain the word "John" on the "Name" attribute.
 Or even better, a drop-down list could be inserted before the search form, so the user could choose the attribute he wants to use on his search and then only write the value on the search bar.
-
-Also, a drop-down list should be created on the modify_schema webpage for the user to choose if the attribute is one-to-one or one-to-many.
