@@ -27,5 +27,5 @@ urlpatterns = [
     path('create_entity/', views.create_entity, name='create_entity'),
     path('entity_history/', views.entity_history, name='entity_history'),
     path('exclude_entity/', views.exclude_entity, name='exclude_entity'),
-    path('modify_entity/', views.modify_entity, name='modify_entity')
+    path('modify_entity/', views.modify_entity, name='modify_entity'),
 ]

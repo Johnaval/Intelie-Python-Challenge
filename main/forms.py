@@ -29,21 +29,3 @@ class EntryForm(forms.Form):
         super(EntryForm, self).__init__(*args, **kwargs)
         for attribute in Schema.objects.order_by().values_list('attribute').distinct():
             self.fields[attribute[0]] = forms.CharField(max_length=200, label=attribute[0], required=False)
-
-'''class CreateNameForm(forms.ModelForm):
-    name = forms.CharField(max_length=200, required=False)
-    class Meta:
-        model = Name
-        exclude = ()
-
-class CreateAddressForm(forms.ModelForm):
-    address = forms.CharField(max_length=200, required=False)
-    class Meta:
-        model = Address
-        exclude = ()
-
-class CreatePhoneForm(forms.ModelForm):
-    phone = forms.CharField(max_length=200, required=False)
-    class Meta:
-        model = Phone
-        exclude = ['entity']'''
