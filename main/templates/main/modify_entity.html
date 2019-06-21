@@ -1,0 +1,11 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+  <form method="POST">
+    <p style="font-size:100%">Modifying Entity: : {{entity_id}}</p>
+    <p style="font-size:80%">Only modify the fields that interest you</p>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn" type="submit" name='entity_id' value={{entity_id}}>Modify entity</button>
+  </form>
+{% endblock %}
