@@ -69,9 +69,6 @@ All the forms used on the website are here.
 A form that lets the user create a new account on the website.
 It was imported from the UserCreationForm already used on Django.
 
-#### SchemaForm
-A form that lets the user modify the schema with the attribute that he want and if it's one-to-one or one-to-many.
-
 #### EntryForm
 A form that lets the user create a new entity.
 It is changeable because it has to show all attributes created on the schema.
