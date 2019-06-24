@@ -4,7 +4,7 @@ from .models import Schema, Entry
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from .forms import SchemaForm, EntryForm, NewUserForm
+from .forms import EntryForm, NewUserForm
 
 # Create your views here.
 def homepage(request):

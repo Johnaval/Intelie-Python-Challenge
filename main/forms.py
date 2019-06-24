@@ -17,13 +17,6 @@ class NewUserForm(UserCreationForm):
             user.save()
         return user
 
-class SchemaForm(forms.ModelForm):
-    attribute = forms.CharField(max_length=200)
-    cardinality = forms.ChoiceField(choices=(('one', 'one'), ('many', 'many')))
-    class Meta:
-        model = Schema
-        exclude = ()
-
 class EntryForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(EntryForm, self).__init__(*args, **kwargs)
